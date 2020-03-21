@@ -65,14 +65,12 @@ The main target is to adjusting the speed of car to relate our lane and keeping 
 
 ![image3](./images/behaviorDesign.png)
 
-
-
 ### Development 
 The intents is to find the location of the car in referene to our car. 
-Is the car ahead of us 
-Is the a car left of us
-Is the car right of us 
-This will help us to decide is we need to reduce speed or it is safe to change the lane
+a) Is the car ahead of us 
+b) Is the a car left of us
+c) Is the car right of us 
+This will help us to decide is we need to reduce speed or it is safe to change the lane.
 ![image4](./images/prediction.png)
 
 --
@@ -89,7 +87,6 @@ This part of the code generates the safe trajector that car should follow to rea
 ![image7](./images/trajectory.png)
 
 ---
-
 ## Dependencies
 
 * cmake >= 3.5
