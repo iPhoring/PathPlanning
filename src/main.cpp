@@ -92,7 +92,8 @@ int main(void) {
                 * define a path made up of (x,y) points that the car will visit
                 * sequentially every .02 seconds
                 */
-                int prev_size=previous_path_x.size(); //last path that car was following before runing thru below path calculation. simulator will pass this as s
+                int prev_size=previous_path_x.size(); // last path that car was following before runing thru below path calculation. 
+                                                      // simulator will pass this as s
                 
                 //******************************************************Prediction and Behavior*****************************************
                if(prev_size>0){car_s=end_path_s;}
@@ -101,7 +102,7 @@ int main(void) {
                bool too_close_right=false;
                for(int i=0;i<sensor_fusion.size();i++){
                  float d=sensor_fusion[i][6];
-                 
+                 // using sensor fusion data to locate all objects around car
                  bool car_to_left = false, car_to_right = false, car_just_ahead = false;
                  if(d<(2+4*lane+2) && d>(2+4*lane-2)){
                    car_just_ahead = true;
