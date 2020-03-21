@@ -83,7 +83,7 @@ Once we have determined the object location wrt our car the below code find the 
 Based on the speed and location the below code design the behavior of the car.
 ![image6](./images/behavior.png )
 
-This part of the code generates the safe trajector that car should follow to reach the designation following speed limit and avoiding max jerck, 
+This part of the code generates the safe trajector that car should follow to reach the designation following speed limit and avoiding max jerck. 
 ![image7](./images/trajectory.png)
 
 ---
