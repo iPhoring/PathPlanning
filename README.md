@@ -60,6 +60,9 @@ the path has processed since last time.
 
 ![image6](./images/behavior.png )
 
+![image7](./images/trajectory.png)
+
+
 
 
 ---
