@@ -1,6 +1,6 @@
 # Path Planning Project
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
-![image1](./image/pathplanner.png)
+![image1](./images/pathplanner.png)
    
 
 ### Goals
