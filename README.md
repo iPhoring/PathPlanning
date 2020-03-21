@@ -68,11 +68,20 @@ The main target is to adjusting the speed of car to relate our lane and keeping 
 
 
 ### Development 
-![image4](./images/prediction.png )
+The intents is to find the location of the car in referene to our car. 
+Is the car ahead of us 
+Is the a car left of us
+Is the car right of us 
+This will help us to decide is we need to reduce speed or it is safe to change the lane
+![image4](./images/prediction.png)
+--
+Once we have determined the object location wrt our car the below code find the speed at which the object/car is moving. This will help to make the decision.
 ![image5](./images/objectprediction.png )
-
+--
+Based on the speed and location the below code design the behavior of the car.
 ![image6](./images/behavior.png )
 
+This part of the code generates the safe trajector that car should follow to reach the designation following speed limit and avoiding max jerck, 
 ![image7](./images/trajectory.png)
 
 
