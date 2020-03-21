@@ -31,8 +31,8 @@ Here is the data provided from the Simulator to the C++ Program
 ["speed"] The car's speed in MPH
 
 #### Previous path data given to the Planner
-//Note: Return the previous list but with processed points removed, can be a nice tool to show how far along
-the path has processed since last time. 
+//Note: Return the previous list but with processed points removed, can be used to show how far along
+the path has processed since last time.
 ["previous_path_x"] The previous list of x points previously given to the simulator
 ["previous_path_y"] The previous list of y points previously given to the simulator
 
