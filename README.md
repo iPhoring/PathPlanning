@@ -4,7 +4,7 @@
    
 
 ### Goals
-Goal is to safely navigate around a virtual highway with other traffic that is driving +-10 MPH of the 50 MPH speed limit. The simulator provide the car's localization and sensor fusion data, there is also a sparse map list of waypoints around the highway. The autonomous car should drive as close as possible to the 50 MPH speed limit, which means passing slower traffic when possible, note that other cars will try to change lanes too. The car should avoid hitting other cars at all cost as well as driving inside of the marked road lanes at all times, unless going from one lane to another. The car should be able to make one complete loop around the 6946m highway. Since the car is trying to go 50 MPH, it should take a little over 5 minutes to complete 1 loop. Also the car should not experience total acceleration over 10 m/s^2 and jerk that is greater than 10 m/s^3.
+Goal is to safely navigate around a virtual highway with other traffic that is driving +-10 MPH of the 50 MPH speed limit. The simulator provides the car's localization and sensor fusion data. There is also a sparse map list of waypoints around the highway. The autonomous car should drive as close as possible to the 50 MPH speed limit, which means passing slower traffic when possible, note that other cars will try to change lanes too. The car should avoid hitting other cars at all cost as well as driving inside of the marked road lanes at all times, unless going from one lane to another. The car should be able to make one complete loop around the 6946m highway. Since the car is trying to go 50 MPH, it should take a little over 5 minutes to complete 1 loop. Also the car should not experience total acceleration over 10 m/s^2 and jerk that is greater than 10 m/s^3.
 
 
 
@@ -45,7 +45,7 @@ the path has processed since last time.
 ["sensor_fusion"] A 2d vector of cars and then that car's [car's unique ID, car's x position in map coordinates, car's y position in map coordinates, car's x velocity in m/s, car's y velocity in m/s, car's s position in frenet coordinates, car's d position in frenet coordinates. 
 
 ## Details
-1. The car uses a perfect controller and will visit every (x,y) point it recieves in the list every .02 seconds. The units for the (x,y) points are in meters and the spacing of the points determines the speed of the car. The vector going from a point to the next point in the list dictates the angle of the car. Accelerations both in the tangential and normal directions are measured along with the jerk, the rate of change of total Acceleration. The (x,y) point paths that the planner recieves should not have a total acceleration that goes over 10 m/s^2, also the jerk should not go over 50 m/s^3. (NOTE: As this is BETA, these requirements might change. Also currently jerk is over a .02 second interval, it would probably be better to average total acceleration over 1 second and measure jerk from that.
+1. The car uses a perfect controller and will visit every (x,y) point it recieves in the list in every .02 seconds. The units for the (x,y) points are in meters and the spacing of the points determines the speed of the car. The vector going from a point to the next point in the list dictates the angle of the car. Accelerations both in the tangential and normal directions are measured along with the jerk, the rate of change of total Acceleration. The (x,y) point paths that the planner recieves should not have a total acceleration that goes over 10 m/s^2, also the jerk should not go over 50 m/s^3. (NOTE: As this is BETA, these requirements might change. Also currently jerk is over a .02 second interval, it would probably be better to average total acceleration over 1 second and measure jerk from that.
 
 2. There will be some latency between the simulator running and the path planner returning a path, with optimized code usually it's not very long, maybe just 1-3 time steps. During this delay the simulator will continue using points that it was last given, because of this it's a good idea to store the last points you have used so you can have a smooth transition. previous_path_x, and previous_path_y can be helpful for this transition since they show the last points given to the simulator controller with the processed points already removed. You would either return a path that extends this previous path or make sure to create a new path that has a smooth transition with this last path.
 
@@ -61,16 +61,16 @@ Motion Control: Fin grain controls for moving the vehicle
 
 ---
 ### Behavior Planner:
-The main target is to adjusting the speed of car to relate our lane and keeping a safe following distance( ex. 30 meters distance from the vehicle in front of us)
+The main target is to adjust the speed of the car to relate our lane and keeping a safe following distance( ex. 30 meters distance from the vehicle in front of it)
 
 ![image3](./images/behaviorDesign.png)
 
 ### Development 
-The intents is to find the location of the car in referene to our car. 
-a) Is the car ahead of us 
-b) Is the a car left of us
-c) Is the car right of us 
-This will help us to decide is we need to reduce speed or it is safe to change the lane.
+The intent is to find locations of other cars in reference to our car. 
+a) Is the car ahead of our car
+b) Is the a car left of our car
+c) Is the car right of our car
+This will help us to decide if it needs to reduce speed or change lane.
 ![image4](./images/prediction.png)
 
 --
@@ -80,10 +80,14 @@ Once we have determined the object location wrt our car the below code find the 
 
 --
 
-Based on the speed and location the below code design the behavior of the car.
+Based on the speed and location the below code designs the behavior of the car.
 ![image6](./images/behavior.png )
 
-This part of the code generates the safe trajector that car should follow to reach the designation following speed limit and avoiding max jerck. 
+This part of the code generates the safe trajectory to reach the destination fulfilling the following:
+-maintaining speed limit
+-avoiding max jerk
+-changing lanes when needed and safe
+
 ![image7](./images/trajectory.png)
 
 ---
