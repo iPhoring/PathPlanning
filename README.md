@@ -112,4 +112,4 @@ This part of the code generates the safe trajectory to reach the destination ful
     git checkout e94b6e1
     ```
 ## Code Style
-Please (do your best to) stick to [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html).
+[Google's C++ style guide](https://google.github.io/styleguide/cppguide.html).
